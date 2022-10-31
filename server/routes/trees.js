@@ -62,6 +62,12 @@ router.get('/:id', async (req, res, next) => {
 
   try {
     // Your code here
+    tree = await Tree.findByPk(req.params.id);
+    console.log(
+      '🚀 ~ file: trees.js ~ line 66 ~ router.get ~ tree',
+      req.params.id,
+      tree
+    );
 
     if (tree) {
       res.json(tree);
