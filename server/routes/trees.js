@@ -41,7 +41,10 @@ router.get('/', async (req, res, next) => {
   );
 
   // Your code here
-  trees = await Tree.findAll();
+  trees = await Tree.findAll({
+    attributes: ['heightFt', 'tree', 'id'],
+    order: [['heightFt', 'DESC']]
+  });
   res.json(trees);
 });
 
